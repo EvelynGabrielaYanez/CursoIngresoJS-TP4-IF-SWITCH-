@@ -19,7 +19,6 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
     vNumLamp = parseInt(document.getElementById("txtIdCantidad").value);
     vMarcLamp =  document.getElementById("Marca").value;    
 
-
     if(vNumLamp == 1 || vNumLamp == 2){
 
         vPrecioFinal =  vNumLamp * cPrecioLamp;
@@ -57,7 +56,7 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 
     }else if(vNumLamp == 5){
 
-        if( vMarcLamp = "ArgentinaLuz"){
+        if( vMarcLamp == "ArgentinaLuz"){
 
             vPrecioFinal =  vNumLamp * cPrecioLamp * ( 1 - 40/100) ;
 
@@ -75,14 +74,14 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
         
     }
 
-    if( (vNumLamp * cPrecioLamp -  vPrecioFinal) > 120 ){
+    if( vPrecioFinal > 120 ){
 
-        alert("Usted pago " +  (vPrecioFinal * 10/100) + " de IIBB.”, siendo " +  (vPrecioFinal * 10/100)  + " el impuesto que se pagó");
+        alert("Usted pago " +  (vPrecioFinal * 10/100).toFixed(2) + " de IIBB.");
 
         vPrecioFinal = vPrecioFinal * ( 1 + 10/100 );
 
     }
 
-    document.getElementById("txtIdprecioDescuento").value = vPrecioFinal;
+    document.getElementById("txtIdprecioDescuento").value = vPrecioFinal.toFixed(2);
 
 }

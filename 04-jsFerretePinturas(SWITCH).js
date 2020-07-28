@@ -16,7 +16,7 @@ function CalcularPrecio ()
     let vMarcLamp;
     let vPrecioFinal;
     const cPrecioLamp = 35;
-    
+
     //------Asigno valor a las varialbes
     vNumLamp = parseInt(document.getElementById("txtIdCantidad").value);
     vMarcLamp =  document.getElementById("Marca").value;    
@@ -31,7 +31,7 @@ function CalcularPrecio ()
         break;
 		case 3:
 
-            switch(vPrecioFinal){
+            switch(vMarcLamp){
 
                 case "ArgentinaLuz":
 
@@ -95,15 +95,16 @@ function CalcularPrecio ()
         
     }
 
-    if( (vNumLamp * cPrecioLamp -  vPrecioFinal) > 120 ){
 
-        alert("Usted pago " +  (vPrecioFinal * 10/100) + " de IIBB.”, siendo " +  (vPrecioFinal * 10/100)  + " el impuesto que se pagó");
+    if( vPrecioFinal > 120 ){
+
+        alert("Usted pago " +  (vPrecioFinal * 10/100).toFixed(2) + " de IIBB.");
 
         vPrecioFinal = vPrecioFinal * ( 1 + 10/100 );
 
     }
 
-    document.getElementById("txtIdprecioDescuento").value = vPrecioFinal;
+    document.getElementById("txtIdprecioDescuento").value = vPrecioFinal.toFixed(2);
 
 
 }
